@@ -1,0 +1,24 @@
+# 个人直连规则 —— 由 shadowrocket.conf 里 RULE-SET ...,Personal-Direct.list,DIRECT 引用
+# 表内只写匹配条件，不写策略（策略由 RULE-SET 那一行统一指定）
+# 加规则：一行一条，改完 push，手机更新配置即生效
+
+# ---------- NTP 校时（UDP 123 走中转会失败/漂移） ----------
+DST-PORT,123
+
+# ---------- 微软账号 / 邮箱（国内可直连，走中转慢且易触发风控） ----------
+DOMAIN-SUFFIX,hotmail.com
+DOMAIN-SUFFIX,outlook.com
+DOMAIN-SUFFIX,live.com
+DOMAIN-SUFFIX,microsoftonline.com
+DOMAIN-SUFFIX,office.com
+DOMAIN-SUFFIX,office365.com
+DOMAIN-SUFFIX,microsoft.com
+
+# ---------- 实测漏网的国内业务域（2026-11-01 日志核对） ----------
+DOMAIN-SUFFIX,volceapplog.com
+DOMAIN-SUFFIX,toutiaostatic.com
+DOMAIN-SUFFIX,jdcloud-oss.com
+DOMAIN-SUFFIX,vzuu.com
+DOMAIN-SUFFIX,douyinec.com
+DOMAIN-SUFFIX,zhuanzhuan.com
+DOMAIN-SUFFIX,aligames.com

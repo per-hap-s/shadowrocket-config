@@ -1,0 +1,54 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # 每 6 小时尝试同步一次上游
+  workflow_dispatch:          # 也可以在 Actions 页面手动点
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Merge upstream/main into fork
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git remote add upstream https://github.com/DuskWander87/shadowrocket-config.git || true
+          git fetch upstream main
+
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "已是最新，无需同步"
+            exit 0
+          fi
+
+          if git merge upstream/main --no-edit; then
+            git push origin HEAD:main
+            echo "同步完成"
+          else
+            git merge --abort || true
+            gh issue create \
+              --title "上游同步冲突 $(date +%F)" \
+              --body "上游 main 与本地改动冲突，自动合并失败。需要手动处理：本地 merge upstream/main 解决冲突后 push。" \
+              --label sync-conflict 2>/dev/null || \
+            gh issue create \
+              --title "上游同步冲突 $(date +%F)" \
+              --body "上游 main 与本地改动冲突，自动合并失败。需要手动处理：本地 merge upstream/main 解决冲突后 push。"
+            echo "::error::上游同步冲突，请手动处理"
+            exit 1
+          fi

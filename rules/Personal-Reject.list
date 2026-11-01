@@ -1,0 +1,17 @@
+# 个人拦截规则 —— 由 shadowrocket.conf 里 RULE-SET ...,Personal-Reject.list,REJECT 引用
+# 表内只写匹配条件，不写策略
+#
+# 收录标准：确认归属是广告/追踪 SDK，且拦截不会影响 App 核心功能（登录、支付、内容加载）
+# 拿不准的先不要放进来，宁可走代理也别把功能拦坏
+#
+# 候选（待逐个确认归属后再放开注释）：
+# DOMAIN-SUFFIX,yfanads.com          # 疑似国内广告交易
+# DOMAIN-SUFFIX,statisticslinks.com  # 疑似广告统计
+# DOMAIN-SUFFIX,adsdk1.cc
+# DOMAIN-SUFFIX,yunxish.com
+# DOMAIN-SUFFIX,buluken.com
+# DOMAIN-SUFFIX,adwangmai.com
+# DOMAIN-SUFFIX,dmrtb.com
+# DOMAIN-SUFFIX,66mobi.com
+# DOMAIN-SUFFIX,litemob.net
+# DOMAIN-SUFFIX,adbiding.com

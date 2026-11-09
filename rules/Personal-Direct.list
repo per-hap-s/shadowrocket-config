@@ -29,3 +29,38 @@ DOMAIN-SUFFIX,vzuu.com
 DOMAIN-SUFFIX,douyinec.com
 DOMAIN-SUFFIX,zhuanzhuan.com
 DOMAIN-SUFFIX,aligames.com
+
+# ---------- 国内业务误走代理（2026-11-09 日志核对：508 个代理域名逐个解析 IP + 查证书主体） ----------
+# 得物
+DOMAIN-SUFFIX,poizon.com
+DOMAIN-SUFFIX,dewucdn.com
+# 华住（汉庭）
+DOMAIN-SUFFIX,huazhu.com
+# 字节小说/番茄视频 CDN（NS 为 BYTEDNS）
+DOMAIN-SUFFIX,qznovelvod.com
+DOMAIN-SUFFIX,doubaocdn.com
+DOMAIN-SUFFIX,volcimagex.net
+# WiFi 万能钥匙
+DOMAIN-SUFFIX,51y5.net
+DOMAIN-SUFFIX,ttwifi.net
+# 巨量引擎埋点（广电 IP）
+DOMAIN-SUFFIX,ctobsnssdk.com
+# 快手 httpdns
+DOMAIN-SUFFIX,kwd.inkuai.com
+# 腾讯云
+DOMAIN-SUFFIX,lanjie100.com
+# 华为云
+DOMAIN-SUFFIX,easytomessage.com
+# 银联
+DOMAIN-SUFFIX,unionpay.com
+# 金山云
+DOMAIN-SUFFIX,yingt.fun
+# 阿里云
+DOMAIN-SUFFIX,nmbyh.com
+# MOJi 辞书
+DOMAIN-SUFFIX,mojidict.com
+# 广告/推广 SDK（均为国内 IP，直连免绕道）
+DOMAIN-SUFFIX,comfylink.com
+DOMAIN-SUFFIX,qrstuvwxyzab.com
+DOMAIN-SUFFIX,pkoplink.com
+DOMAIN-SUFFIX,tec73.com
